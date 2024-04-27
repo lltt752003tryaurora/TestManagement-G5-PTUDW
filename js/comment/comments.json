@@ -1,0 +1,18 @@
+[
+  {
+    "issue": "I0001",
+    "comments": [
+
+    ]
+  },
+  {
+    "issue": "I0002",
+    "comments": [
+      {
+        "id": 1,
+        "owner": 1,
+        "content": "Hi, your bof vulnerability is severe. The program crashes when handle a string longer than 1KB. Please fix before 30 March."
+      }
+    ]
+  }
+]

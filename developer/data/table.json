@@ -1,0 +1,32 @@
+[
+  {
+    "id": "I0001",
+    "url": "/developer/issues/I0001/index.html",
+    "title": "Icon overlay error",
+    "createdBy": 1,
+    "assignedTo": 0,
+    "status_": "open",
+    "priority": "high",
+    "createdDate": "24/03/2024"
+  },
+  {
+    "id": "I0002",
+    "url": "/developer/issues/I0002/index.html",
+    "title": "Buffer overflow vulnerability",
+    "createdBy": 1,
+    "assignedTo": 0,
+    "status_": "open",
+    "priority": "medium",
+    "createdDate": "24/03/2024"
+  },
+  {
+    "id": "I0003",
+    "url": "/developer/issues/I0003/index.html",
+    "title": "Error displaying Vietnamese text",
+    "createdBy": 1,
+    "assignedTo": 0,
+    "status_": "closed",
+    "priority": "low",
+    "createdDate": "24/03/2024"
+  }
+]
