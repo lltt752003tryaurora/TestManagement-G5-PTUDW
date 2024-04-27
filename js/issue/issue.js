@@ -1,5 +1,17 @@
-const populateTable = () => {
+const fetchUsers = async () => {
+  const resp = await fetch("/static/users.json");
+  return await resp.json();
+}
+
+const fetchTable = async () => {
+const resp = await fetch("/static/issues.json");
+return await resp.json();
+}
+
+const populateTable = async () => {
   const tableBody = document.getElementById("table-body");
+  const users = await fetchUsers();
+  const tableData = await fetchTable();
 
   // Clear existing table rows
   tableBody.innerHTML = "";
@@ -21,10 +33,7 @@ const populateTable = () => {
 
     // Set the innerHTML of each cell
     checkboxCell.innerHTML = `<input type="checkbox">`;
-    // idCell.textContent = data.id;
     titleCell.textContent = data.title;
-    // createdByCell.textContent = data.createdBy;
-    // assignedToCell.textContent = data.assignedTo;
     statusCell.textContent = data.status_;
     priorityCell.textContent = data.priority;
     createdDateCell.textContent = data.createdDate;
@@ -51,9 +60,9 @@ const populateTable = () => {
 
     // Status
     if (data.status_ === "open") {
-      statusCell.classList.add("text-primary"); // Bootstrap class for blue text
+      statusCell.classList.add("text-primary");
     } else if (data.status_ === "closed") {
-      statusCell.classList.add("text-secondary"); // Bootstrap class for purple text
+      statusCell.classList.add("text-secondary");
     }
 
     // Priority
@@ -80,32 +89,4 @@ const populateTable = () => {
   });
 }
 
-let users;
-const fetchUser = async () => {
-  try {
-    const resp = await fetch("/developer/data/users.json");
-    users = await resp.json();
-    console.log(users);
-  } catch (err) {
-    console.log(err);
-  }
-}
 
-let tableData;
-const fetchTable = async () => {
-    try {
-      const resp = await fetch("/developer/data/table.json");
-      tableData = await resp.json();
-      console.log(tableData);
-    } catch (err) {
-      console.log(err);
-    }
-}
-
-fetchUser()
-  .then(() => {
-    fetchTable()
-      .then(() => {
-        populateTable();
-      })
-  })
