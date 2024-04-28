@@ -1,3 +1,4 @@
+let comments = [];
 
 const fetchComments = async () => {
   const resp = await fetch("/static/comments.json");
@@ -13,8 +14,10 @@ const fetchUser = async (id) => {
 const displayComments = async (issueId) => {
   const commentsData = await fetchComments();
   const issue = commentsData.find(item => item.issue === issueId);
-  const comments = issue?.comments || [];
+  comments = issue?.comments || [];
   const container = document.getElementById("comments-container");
+
+  container.innerText = "";
 
   // Container wrapper
   const wrapper = document.createElement("div");
@@ -64,12 +67,12 @@ const displayComments = async (issueId) => {
     // Comment header right
     const cmtHeaderRight = document.createElement("div");
     cmtHeaderRight.classList.add("d-flex", "flex-row");
-    const watchIcon = document.createElement("i");
-    watchIcon.classList.add("fas", "fa-fw", "fa-eye");
-    const shareIcon = document.createElement("i");
-    shareIcon.classList.add("fas", "fa-fw", "fa-reply");
-    cmtHeaderRight.appendChild(shareIcon);
-    cmtHeaderRight.appendChild(watchIcon);
+    // const watchIcon = document.createElement("i");
+    // watchIcon.classList.add("fas", "fa-fw", "fa-eye");
+    // const replyIcon = document.createElement("i");
+    // replyIcon.classList.add("fas", "fa-fw", "fa-reply");
+    // cmtHeaderRight.appendChild(replyIcon);
+    // cmtHeaderRight.appendChild(watchIcon);
     cmtHeader.appendChild(cmtHeaderRight);
 
     // Comment body
@@ -84,3 +87,64 @@ const displayComments = async (issueId) => {
   })
 }
 
+
+const addComment = async (newCmtContent) => {
+  const newCmt = {
+    id: comment.length + 1,
+    owner: 0,
+    time: "just now",
+    content: newCmtContent,
+    level: 0
+  };
+  comments.push(newCmt);
+
+  const wrapper = document.querySelector("#comments-container").firstChild;
+
+  // Fetch comment's owner info
+  const user = await fetchUser(newCmt.owner);
+
+  // Comment container = header + content
+  const cmtContainer = document.createElement("div");
+  const indent = newCmt.level * 4;
+  cmtContainer.classList.add("container", "border", "border-dark", "rounded-lg", "my-4", "py-4");
+  wrapper.appendChild(cmtContainer);
+  
+  // Comment header = left + right
+  const cmtHeader = document.createElement("div");
+  cmtHeader.classList.add("d-flex", "flex-row", "justify-content-between", "align-items-center");
+  cmtContainer.appendChild(cmtHeader);
+
+  // Comment header left
+  const cmtHeaderLeft = document.createElement("div");
+  cmtHeaderLeft.classList.add("d-flex", "flex-row");
+  cmtHeader.appendChild(cmtHeaderLeft);
+
+  // Comment header left avatar
+  const userAvatar = document.createElement("img");
+  userAvatar.src = user.avatar;
+  userAvatar.style = "max-height: 40px;";
+  userAvatar.classList.add("rounded-circle", "mx-2");
+  cmtHeaderLeft.appendChild(userAvatar);
+
+  // Comment header left info
+  const cmtInfo = document.createElement("div");
+  const username = user.username;
+  const createAt = newCmt.time;
+  cmtInfo.innerHTML = `<div>${username}</div><div>${createAt}</div>`;
+  cmtHeaderLeft.appendChild(cmtInfo);
+
+  // Comment header right
+  const cmtHeaderRight = document.createElement("div");
+  cmtHeaderRight.classList.add("d-flex", "flex-row");
+  cmtHeader.appendChild(cmtHeaderRight);
+
+  // Comment body
+  const cmtBody = document.createElement("div");
+  cmtBody.classList.add("p-2");
+  cmtContainer.appendChild(cmtBody);
+
+  // Comment content
+  const cmtContent = document.createElement("p");
+  cmtContent.innerText = newCmt.content;
+  cmtBody.appendChild(cmtContent);
+}
