@@ -28,5 +28,45 @@
     "status_": "closed",
     "priority": "low",
     "createdDate": "24/03/2024"
+  },
+  {
+    "id": "I0004",
+    "url": "/developer/issues/I0004/index.html",
+    "title": "Memory leak in application",
+    "createdBy": 1,
+    "assignedTo": 0,
+    "status_": "open",
+    "priority": "high",
+    "createdDate": "25/03/2024"
+  },
+  {
+    "id": "I0005",
+    "url": "/developer/issues/I0005/index.html",
+    "title": "Cross-site scripting vulnerability",
+    "createdBy": 1,
+    "assignedTo": 0,
+    "status_": "open",
+    "priority": "medium",
+    "createdDate": "25/03/2024"
+  },
+  {
+    "id": "I0006",
+    "url": "/developer/issues/I0006/index.html",
+    "title": "Authentication bypass vulnerability",
+    "createdBy": 1,
+    "assignedTo": 0,
+    "status_": "closed",
+    "priority": "low",
+    "createdDate": "26/03/2024"
+  },
+  {
+    "id": "I0007",
+    "url": "/developer/issues/I0007/index.html",
+    "title": "Database connection timeout",
+    "createdBy": 1,
+    "assignedTo": 0,
+    "status_": "open",
+    "priority": "high",
+    "createdDate": "26/03/2024"
   }
 ]

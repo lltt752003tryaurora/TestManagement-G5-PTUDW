@@ -24,8 +24,14 @@ const displayComments = async (issueId) => {
   wrapper.classList.add("container");
   container.appendChild(wrapper);
 
+  if (comments.length === 0) {
+    wrapper.innerHTML = "<div class='container text-center'><i>No comments for this issue yet. You can post your comment, or track this issue for updates.</i></div>";
+    return;
+  }
+
   // Issue title
   const issueTitle = document.createElement("h2");
+  issueTitle.classList.add("h4");
   issueTitle.innerText = issue.title;
   wrapper.appendChild(issueTitle);
 
