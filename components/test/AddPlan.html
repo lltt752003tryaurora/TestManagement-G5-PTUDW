@@ -46,6 +46,7 @@
     />
     <link href="/css/sb-admin-2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="./AddPlan.css" />
   </head>
 
   <body id="page-top">
@@ -105,8 +106,8 @@
           >
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Ongoing Projects:</h6>
-              <a class="collapse-item active" href="./AddTest.html">Add Test</a>
-              <a class="collapse-item" href="./AddPlan.html">Plan & Run</a>
+              <a class="collapse-item" href="./AddTest.html">Add Test</a>
+              <a class="collapse-item active" href="./AddPlan.html">Plan & Run</a>
               <a class="collapse-item" href="./TestOverview.html"
                 >Test Overview</a
               >
@@ -464,7 +465,7 @@
             <div class="row">
               <div class="col-lg-8">
                 <!-- Table data -->
-                <h1 class="h3 mb-2 text-gray-800">DataTables</h1>
+                <h1 class="h3 mb-2 text-gray-800">All Plan</h1>
                 <p class="mb-4">
                   DataTables is showing all test cases which is generate by you.
                   <a target="_blank" href="https://datatables.net"
@@ -478,7 +479,7 @@
                     class="card-header py-3 d-flex align-items-center justify-content-between"
                   >
                     <h6 class="m-0 font-weight-bold text-primary">
-                      DataTables Example
+                      DataTables
                     </h6>
                     <div class="action-button">
                       <button
@@ -487,7 +488,7 @@
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop"
                       >
-                        Click here to add test case
+                        Click here to add plan
                       </button>
 
                       <!-- Modal -->
@@ -520,7 +521,7 @@
                               <form id="formTestCase">
                                 <div class="row">
                                   <div class="col-6 form-group">
-                                    <label for="">Name test case</label>
+                                    <label for="">Name test plan</label>
                                     <span class="text-danger">*</span>
                                     <input
                                       type="text"
@@ -533,7 +534,7 @@
                                     ></p>
                                   </div>
                                   <div class="col-6 form-group">
-                                    <label for="">Hour test</label>
+                                    <label for="">Hour plan</label>
                                     <span class="text-danger">*</span>
                                     <input
                                       type="number"
@@ -686,6 +687,26 @@
                       </table>
                     </div>
                   </div>
+                  <section class="section-center">
+                    <!-- form -->
+                    <form class="grocery-form">
+                      <p class="alert"></p>
+                      <h3>Add test run</h3>
+                      <div class="form-control">
+                        <input
+                          type="text"
+                          id="grocery"
+                          placeholder="e.g. eggs"
+                        />
+                        <button type="submit" class="submit-btn">submit</button>
+                      </div>
+                    </form>
+                    <!-- list -->
+                    <div class="grocery-container">
+                      <div class="grocery-list"></div>
+                      <button class="clear-btn">Clear items</button>
+                    </div>
+                  </section>
                 </div>
               </div>
 
@@ -693,74 +714,77 @@
                 <div class="card shadow mb-4">
                   <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">
-                      Recently Activity <i class="fa-solid fa-clock"></i>
+                      Test Run Progress  <i class="fa-solid fa-clock"></i>
                     </h6>
                   </div>
                   <div class="card-body">
-                    <!-- <a href="#" class="btn btn-primary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-flag"></i>
-                      </span>
-                      <span class="text">Split Button Primary</span>
-                    </a> -->
-                    <div class="my-2"></div>
-                    <a href="#" class="btn btn-success btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-check"></i>
-                      </span>
-                      <span class="text"><b>Jira Task 1</b> is created</span>
-                    </a>
-                    <!-- <div class="my-2"></div>
-                    <a href="#" class="btn btn-info btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-info-circle"></i>
-                      </span>
-                      <span class="text">Split Button Info</span>
-                    </a> -->
-                    <div class="my-2"></div>
-                    <a href="#" class="btn btn-warning btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-exclamation-triangle"></i>
-                      </span>
-                      <span class="text"
-                        ><b>Jira Task 2</b> is waiting for complete</span
-                      >
-                    </a>
-                    <div class="my-2"></div>
-                    <a href="#" class="btn btn-danger btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                      </span>
-                      <span class="text"><b>Jira Task 3</b> is deleted</span>
-                    </a>
-                    <div class="my-2"></div>
-                    <a href="#" class="btn btn-secondary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fa-solid fa-skull"></i>
-                      </span>
-                      <span class="text"><b>Jira Task 4</b> is banned</span>
-                    </a>
-                    <!-- <div class="my-2"></div>
-                    <a href="#" class="btn btn-light btn-icon-split">
-                      <span class="icon text-gray-600">
-                        <i class="fa-solid fa-skull"></i>
-                      </span>
-                      <span class="text">Split Button Light</span>
-                    </a> -->
-                    <div class="mb-4"></div>
-                    <p>Also works with small and large button classes!</p>
-                    <div class="my-2"></div>
-                    <a
-                      href="https://www.facebook.com/truongthinh752003"
-                      class="btn btn-primary btn-icon-split btn-lg"
-                      target="_blank"
+                    <div
+                      class="progress"
+                      role="progressbar"
+                      aria-label="Default striped example"
+                      aria-valuenow="10"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
                     >
-                      <span class="icon text-white-50">
-                        <i class="fa-solid fa-circle-info"></i>
-                      </span>
-                      <span class="text">Ask me for more ^^</span>
-                    </a>
+                      <div
+                        class="progress-bar progress-bar-striped"
+                        style="width: 10%"
+                      ></div>
+                    </div>
+                    <div
+                      class="progress"
+                      role="progressbar"
+                      aria-label="Success striped example"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      <div
+                        class="progress-bar progress-bar-striped bg-success"
+                        style="width: 25%"
+                      ></div>
+                    </div>
+                    <div
+                      class="progress"
+                      role="progressbar"
+                      aria-label="Info striped example"
+                      aria-valuenow="50"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      <div
+                        class="progress-bar progress-bar-striped bg-info"
+                        style="width: 50%"
+                      ></div>
+                    </div>
+                    <div
+                      class="progress"
+                      role="progressbar"
+                      aria-label="Warning striped example"
+                      aria-valuenow="75"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      <div
+                        class="progress-bar progress-bar-striped bg-warning"
+                        style="width: 75%"
+                      ></div>
+                    </div>
+                    <div
+                      class="progress"
+                      role="progressbar"
+                      aria-label="Danger striped example"
+                      aria-valuenow="100"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      <div
+                        class="progress-bar progress-bar-striped bg-danger"
+                        style="width: 100%"
+                      ></div>
+                    </div>
                   </div>
+                  
                 </div>
               </div>
             </div>
@@ -821,7 +845,7 @@
             >
               Cancel
             </button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="../security/login.html">Logout</a>
           </div>
         </div>
       </div>
@@ -857,5 +881,8 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
+    <script src="/js/ItemList.js"></script>
+    <script src="/js/Items.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>
