@@ -10,6 +10,10 @@
 	background-color: #DCE3EE;
 }
 
+.bg-dimmed-white {
+	background-color: #F7F8FA;
+}
+
 html, body {
 	background-color: #F7F8FA;
 	height: 100%;
